@@ -23,25 +23,25 @@ defmodule Day01 do
 
     ## Examples
 
-    iex> Day01.solve("test/ex1.txt")
+    iex> Day01.solve("test/day_01/ex1.txt")
     3
 
-    iex> Day01.solve("test/ex2.txt")
+    iex> Day01.solve("test/day_01/ex2.txt")
     0
 
-    iex> Day01.solve("test/ex3.txt")
+    iex> Day01.solve("test/day_01/ex3.txt")
     -6
 
-    iex> Day01.solve("part_1.txt")
+    iex> Day01.solve("inputs/day_01.txt")
     522
 
-    iex> Day01.first_double_frequency("test/ex4.txt")
+    iex> Day01.first_double_frequency("test/day_01/ex4.txt")
     0
 
-    iex> Day01.first_double_frequency("test/ex5.txt")
+    iex> Day01.first_double_frequency("test/day_01/ex5.txt")
     10
 
-    iex> Day01.first_double_frequency("part_1.txt")
+    iex> Day01.first_double_frequency("inputs/day_01.txt")
     522
 
     Starting with a frequency of zero, what is the resulting frequency after all of the changes in frequency have been applied?
@@ -58,7 +58,6 @@ defmodule Day01 do
       input
       |> File.read!
       |> String.split("\n", trim: true)
-      |> mx
     end
 
   end
