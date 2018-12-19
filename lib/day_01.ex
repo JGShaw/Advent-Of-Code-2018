@@ -42,22 +42,32 @@ defmodule Day01 do
     10
 
     iex> Day01.first_double_frequency("inputs/day_01.txt")
-    522
+    73364
 
     Starting with a frequency of zero, what is the resulting frequency after all of the changes in frequency have been applied?
 
-    """
-    def solve input do
-      input
-      |> File.read!
-      |> String.split("\n", trim: true)
-      |> Enum.reduce(0, fn x, acc -> String.to_integer(x) + acc end)
-    end
-
-    def first_double_frequency input do
-      input
-      |> File.read!
-      |> String.split("\n", trim: true)
-    end
-
+  """
+  def solve input do
+    input
+    |> File.read!
+    |> String.split("\n", trim: true)
+    |> Enum.reduce(0, fn x, acc -> String.to_integer(x) + acc end)
   end
+
+  def first_double_frequency input do
+    input
+    |> File.read!
+    |> String.split("\n", trim: true)
+    |> Enum.map(&String.to_integer/1)
+    |> find_first([0], 0)
+  end
+
+  def find_first([hd | tl], seen, total) do
+    new_total = hd + total
+    if Enum.member?(seen, new_total) do
+      new_total
+    else
+      find_first(tl ++ [hd], [new_total | seen], new_total)
+    end
+  end
+end
